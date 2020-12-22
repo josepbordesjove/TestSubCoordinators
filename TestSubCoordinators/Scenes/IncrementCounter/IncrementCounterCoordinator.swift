@@ -9,21 +9,18 @@ import UIKit
 
 final class IncrementCounterCoordinator: Coordinator {
     weak var navigationController: UINavigationController?
+    var onIncrementCounter: (Int) -> Void
     
-    init(from navigationController: UINavigationController) {
+    init(from navigationController: UINavigationController, onIncrementCounter: @escaping (Int) -> Void) {
         self.navigationController = navigationController
-        
+        self.onIncrementCounter = onIncrementCounter
         let transition = ControllerTransitionStyle.Pushing(fromNavigationController: navigationController)
         super.init(transition: .push(transition))
     }
     
-    init(fromController: UIViewController, containerView: UIView) {
-        let child = ControllerTransitionStyle.Child(fromController: fromController,
-                                                    containerView: containerView,
-                                                    constraintHandler: { childView, _ in
-                                                        [childView.constraintEdges()].activateNestedConstraints()
-                                                    })
-        super.init(transition: .child(child))
+    init(fromController: UIViewController, containerView: UIStackView, onIncrementCounter: @escaping (Int) -> Void) {
+        self.onIncrementCounter = onIncrementCounter
+        super.init(transition: .stackedChild(fromController: fromController, containerStack: containerView, at: 0))
     }
     
     override func start() {
@@ -35,7 +32,10 @@ final class IncrementCounterCoordinator: Coordinator {
     }
 }
 
-// MARK:
+// MARK: IncrementCounterSceneDelegate
 
-extension IncrementCounterCoordinator: IncrementCounterSceneDelegate { }
-
+extension IncrementCounterCoordinator: IncrementCounterSceneDelegate {
+    func onIncrementCounter(by value: Int) {
+        onIncrementCounter(value)
+    }
+}

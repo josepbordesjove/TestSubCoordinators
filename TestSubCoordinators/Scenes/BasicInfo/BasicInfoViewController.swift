@@ -25,4 +25,8 @@ final class BasicInfoViewController: ViewController {
 
 extension BasicInfoViewController: BasicInfoViewDelegate { }
 
-extension BasicInfoViewController: BasicInfoUI { }
+extension BasicInfoViewController: BasicInfoUI {
+    func setCounter(to value: Int) {
+        mainView.setCounter(to: value)
+    }
+}

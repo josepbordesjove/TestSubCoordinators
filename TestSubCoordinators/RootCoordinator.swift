@@ -20,8 +20,8 @@ final class RootCoordinator: Coordinator {
     override func start() {
         let rootNavigationController = UINavigationController()
         transition?.show(controller: rootNavigationController, animated: false, completion: {
-            let loginCoordinator = OperationsCoordinator(from: rootNavigationController)
-            self.addChild(loginCoordinator, starting: true)
+            let operationsCoordinator = OperationsCoordinator(from: rootNavigationController)
+            self.addChild(operationsCoordinator, starting: true)
         })
     }
 }

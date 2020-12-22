@@ -39,6 +39,8 @@
 		B0B6B3BF259156DC00AE8352 /* ResultCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B3BB259156DC00AE8352 /* ResultCounterView.swift */; };
 		B0B6B3C0259156DC00AE8352 /* ResultCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B3BC259156DC00AE8352 /* ResultCounterViewController.swift */; };
 		B0B6B3C1259156DC00AE8352 /* ResultCounterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B3BD259156DC00AE8352 /* ResultCounterCoordinator.swift */; };
+		B0B6B3C92591644C00AE8352 /* BasicInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B3C82591644C00AE8352 /* BasicInfoViewModel.swift */; };
+		B0B6B3CC2591E09400AE8352 /* OperationsCoordinator+Subcoordinators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B3CB2591E09400AE8352 /* OperationsCoordinator+Subcoordinators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		B0B6B3BB259156DC00AE8352 /* ResultCounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCounterView.swift; sourceTree = "<group>"; };
 		B0B6B3BC259156DC00AE8352 /* ResultCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCounterViewController.swift; sourceTree = "<group>"; };
 		B0B6B3BD259156DC00AE8352 /* ResultCounterCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCounterCoordinator.swift; sourceTree = "<group>"; };
+		B0B6B3C82591644C00AE8352 /* BasicInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoViewModel.swift; sourceTree = "<group>"; };
+		B0B6B3CB2591E09400AE8352 /* OperationsCoordinator+Subcoordinators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationsCoordinator+Subcoordinators.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B6B3932591465000AE8352 /* OperationsCoordinator.swift */,
+				B0B6B3CB2591E09400AE8352 /* OperationsCoordinator+Subcoordinators.swift */,
 				B0B6B2DC259142BA00AE8352 /* OperationsViewController.swift */,
 				B0B6B3902591463F00AE8352 /* OperationsView.swift */,
 				B0B6B3962591465900AE8352 /* OperationsPresenter.swift */,
@@ -255,6 +260,7 @@
 				B0B6B3A22591516500AE8352 /* BasicInfoViewController.swift */,
 				B0B6B3A52591516C00AE8352 /* BasicInfoView.swift */,
 				B0B6B3A82591517600AE8352 /* BasicInfoPresenter.swift */,
+				B0B6B3C82591644C00AE8352 /* BasicInfoViewModel.swift */,
 			);
 			path = BasicInfo;
 			sourceTree = "<group>";
@@ -376,10 +382,12 @@
 				B0B6B3212591434A00AE8352 /* Then.swift in Sources */,
 				B0B6B39F2591515900AE8352 /* BasicInfoCoordinator.swift in Sources */,
 				B0B6B3C0259156DC00AE8352 /* ResultCounterViewController.swift in Sources */,
+				B0B6B3CC2591E09400AE8352 /* OperationsCoordinator+Subcoordinators.swift in Sources */,
 				B0B6B3352591437100AE8352 /* UIView+Utils.swift in Sources */,
 				B0B6B3942591465000AE8352 /* OperationsCoordinator.swift in Sources */,
 				B0B6B39B259147C600AE8352 /* RootCoordinator.swift in Sources */,
 				B0B6B3362591437100AE8352 /* UINavigationController+Utils.swift in Sources */,
+				B0B6B3C92591644C00AE8352 /* BasicInfoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

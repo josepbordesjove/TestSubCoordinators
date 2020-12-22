@@ -11,9 +11,12 @@ protocol BasicInfoSceneDelegate: class {}
 
 protocol BasicInfoPresenting: AnyObject {
     /* weak */ var ui: BasicInfoUI? { get set }
+    func setCounter(to value: Int)
 }
 
-protocol BasicInfoUI: AnyObject { }
+protocol BasicInfoUI: AnyObject {
+    func setCounter(to value: Int)
+}
 
 final class BasicInfoPresenter {
     weak var delegate: BasicInfoSceneDelegate?
@@ -21,6 +24,10 @@ final class BasicInfoPresenter {
     weak var ui: BasicInfoUI?
     
     init() { }
+    
+    func setCounter(to value: Int) {
+        ui?.setCounter(to: value)
+    }
 }
 
 extension BasicInfoPresenter: BasicInfoPresenting { }

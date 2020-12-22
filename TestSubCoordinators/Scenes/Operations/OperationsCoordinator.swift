@@ -8,6 +8,7 @@
 import UIKit
 
 final class OperationsCoordinator: Coordinator {
+    internal var subcoordinators: [OperationsSubCoordinator] = []
     weak var navigationController: UINavigationController?
     
     init(from navigationController: UINavigationController) {
@@ -23,10 +24,29 @@ final class OperationsCoordinator: Coordinator {
         
         let ui = OperationsViewController(presenter: presenter)
         transition?.show(controller: ui, animated: true)
+        
+        addSubCoordinators(to: ui.containerStackView, parentController: ui)
+    }
+    
+    private func addSubCoordinators(to containerView: UIStackView, parentController: UIViewController) {
+        let basicInformationCoordinator = BasicInfoCoordinator(
+            fromController: parentController,
+            containerView: containerView)
+
+        let incrementCounterCoordinator = IncrementCounterCoordinator(
+            fromController: parentController,
+            containerView: containerView,
+            onIncrementCounter: subcoordinators.incrementCounter)
+        
+        [
+            .basicInfo(basicInformationCoordinator),
+            .incrementCounter(incrementCounterCoordinator)
+        ].forEach { subcoordinators.append($0) }
+        subcoordinators.addAndStart(to: self)
     }
 }
 
-// MARK:
+// MARK: OperationsSceneDelegate
 
 extension OperationsCoordinator: OperationsSceneDelegate {
     func onCalculateResultTapped() {
@@ -35,4 +55,3 @@ extension OperationsCoordinator: OperationsSceneDelegate {
         addChild(basicInfoCoordinator, starting: true)
     }
 }
-

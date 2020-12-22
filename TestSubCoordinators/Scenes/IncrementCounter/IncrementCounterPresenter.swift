@@ -7,10 +7,13 @@
 
 import Foundation
 
-protocol IncrementCounterSceneDelegate: class {}
+protocol IncrementCounterSceneDelegate: class {
+    func onIncrementCounter(by value: Int)
+}
 
 protocol IncrementCounterPresenting: AnyObject {
     /* weak */ var ui: IncrementCounterUI? { get set }
+    func onIncrementCounter(by value: Int)
 }
 
 protocol IncrementCounterUI: AnyObject { }
@@ -23,4 +26,8 @@ final class IncrementCounterPresenter {
     init() { }
 }
 
-extension IncrementCounterPresenter: IncrementCounterPresenting { }
+extension IncrementCounterPresenter: IncrementCounterPresenting {
+    func onIncrementCounter(by value: Int) {
+        delegate?.onIncrementCounter(by: value)
+    }
+}

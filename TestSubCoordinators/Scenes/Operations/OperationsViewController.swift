@@ -30,5 +30,4 @@ extension OperationsViewController: OperationsViewDelegate {
     }
 }
 
-extension OperationsViewController: OperationsUI {
-}
+extension OperationsViewController: OperationsUI { }

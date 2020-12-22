@@ -9,6 +9,7 @@ import UIKit
 
 final class BasicInfoCoordinator: Coordinator {
     weak var navigationController: UINavigationController?
+    var presenter: BasicInfoPresenting?
     
     init(from navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -17,21 +18,22 @@ final class BasicInfoCoordinator: Coordinator {
         super.init(transition: .push(transition))
     }
     
-    init(fromController: UIViewController, containerView: UIView) {
-        let child = ControllerTransitionStyle.Child(fromController: fromController,
-                                                    containerView: containerView,
-                                                    constraintHandler: { childView, _ in
-                                                        [childView.constraintEdges()].activateNestedConstraints()
-                                                    })
-        super.init(transition: .child(child))
+    init(fromController: UIViewController, containerView: UIStackView) {
+        super.init(transition: .stackedChild(fromController: fromController, containerStack: containerView, at: 0))
     }
     
     override func start() {
         let presenter = BasicInfoPresenter()
         presenter.delegate = self
         
+        self.presenter = presenter
+        
         let ui = BasicInfoViewController(presenter: presenter)
         transition?.show(controller: ui, animated: true)
+    }
+    
+    public func setCounter(to value: Int) {
+        presenter?.setCounter(to: value)
     }
 }
 

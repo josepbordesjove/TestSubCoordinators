@@ -1,7 +1,5 @@
 import UIKit 
 
-
-
 open class Coordinator: NSObject {
     public private(set) var children = [Coordinator]()
     /// Transition for this coordinator. It may be nil if the coordinator is not showing nothing by itself but handling some other coordinators. Otherwise it may have a transition style here that will be use for showing the controller.

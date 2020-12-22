@@ -20,6 +20,10 @@ protocol OperationsUI: AnyObject {
 }
 
 final class OperationsPresenter {
+    struct State {
+        var calculatedAmount: Int = 0
+    }
+
     weak var delegate: OperationsSceneDelegate?
     
     weak var ui: OperationsUI?

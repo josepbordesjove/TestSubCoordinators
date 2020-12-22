@@ -26,4 +26,8 @@ final class BasicInfoView: View {
     override func setupConstraints() {
         [counterLabel.constraintCenter()].activateNestedConstraints()
     }
+    
+    func setCounter(to value: Int) {
+        counterLabel.text = "\(value)"
+    }
 }

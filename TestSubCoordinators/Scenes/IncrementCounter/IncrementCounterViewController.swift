@@ -23,6 +23,10 @@ final class IncrementCounterViewController: ViewController {
     }
 }
 
-extension IncrementCounterViewController: IncrementCounterViewDelegate { }
+extension IncrementCounterViewController: IncrementCounterViewDelegate {
+    func incrementCounter(by value: Int) {
+        presenter.onIncrementCounter(by: value)
+    }
+}
 
 extension IncrementCounterViewController: IncrementCounterUI { }

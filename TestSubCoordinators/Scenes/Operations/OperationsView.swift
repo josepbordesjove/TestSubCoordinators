@@ -20,7 +20,7 @@ final class OperationsView: View {
 
     private(set) lazy var stackView = UIStackView().then {
         $0.alignment = .fill
-        $0.distribution = .fill
+        $0.distribution = .fillEqually
         $0.axis = .vertical
         $0.spacing = Constants.StackView.spacing
     }
@@ -34,11 +34,12 @@ final class OperationsView: View {
    
     override func setupView() {
         backgroundColor = .white
-        [stackView, button].forEach(addSubview)
+        addSubview(stackView)
+        stackView.addArrangedSubview(button)
     }
 
     override func setupConstraints() {
-        [button.constraintCenter()].activateNestedConstraints()
+        [stackView.constraintEdges()].activateNestedConstraints()
     }
 }
 
