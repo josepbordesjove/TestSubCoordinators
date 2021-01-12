@@ -44,7 +44,7 @@ extension OperationsCoordinator: SceneCoordinatorsValuesUpdater {
     }
 }
 
-extension Array where Element == OperationsCoordinator.OperationsSubCoordinator {
+extension Array: SceneCoordinatorsValuesUpdater where Element == OperationsCoordinator.OperationsSubCoordinator {
     func addAndStart(to parent: Coordinator) {
         forEach { $0.addCoordinator(to: parent, starting: true) }
     }
